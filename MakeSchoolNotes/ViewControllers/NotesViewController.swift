@@ -13,7 +13,7 @@ import RealmSwift
 class NotesViewController: UITableViewController {
     
     var SelectedNote: Note? //ตัวแปรเอาไว้เก็บค่าข้อมูลของ  note ที่ถูกเลือก
- 
+    
     var notes: Results<Note>!{ //สร้างตัวแปรมาเก็บข้อมูล ต้องเป็น Results
         didSet{
             tableView.reloadData()
@@ -99,7 +99,7 @@ extension NotesViewController //เพิ่มความยืดหยุ่
 {
     //mark: Delegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        SelectedNote=notes[indexPath.row]
         self.performSegueWithIdentifier("ShowExistingNote", sender: self)
     }
     
